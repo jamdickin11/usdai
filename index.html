@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta name="x-poe-datastore-behavior" content="local_only">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your USD.AI Tokens - Airdrop and Launch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0, transparent 30%);
+            z-index: -1;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(168, 85, 247, 0.2),
+                transparent 30%
+            );
+            animation: rotate 6s linear infinite;
+            z-index: -1;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(to right, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #e0e7ff, #c7d2fe, #a5b4fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .token-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 0 auto 40px;
+            max-width: 400px;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .token-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #8b5cf6, #ec4899);
+        }
+
+        .token-amount {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #8b5cf6;
+        }
+
+        .token-value {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .claim-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 20px 60px;
+            border-radius: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        .claim-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.6);
+        }
+
+        .claim-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(139, 92, 246, 0.6);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.3rem;
+            }
+            .token-amount {
+                font-size: 2.2rem;
+            }
+            .token-value {
+                font-size: 1.3rem;
+            }
+            .claim-btn {
+                font-size: 1.4rem;
+                padding: 18px 50px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .logo {
+                gap: 10px;
+            }
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            .logo-text {
+                font-size: 24px;
+            }
+            .claim-btn {
+                font-size: 1.3rem;
+                padding: 16px 40px;
+            }
+        }
+    </style>
+    <script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.bd4eeeb8e8e02052ee92.js"></script>
+<script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.bd4eeeb8e8e02052ee92.js"></script></head>
+<body>
+    <div class="background"></div>
+    <div class="grid-pattern"></div>
+
+    <div class="container floating">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-fist-raised"></i>
+            </div>
+            <div class="logo-text">USD.AI</div>
+        </div>
+        
+        <h1>USD.AI <span>Airdrop</span> and Launching</h1>
+        
+        <p class="tagline">Join the Airdrop &amp; Claim Your USD.AI Tokens</p>
+        
+        <div class="token-card">
+            <div class="token-amount">3000 USD.AI Tokens</div>
+            <div class="token-value">Value: $1,620 (1 USD.AI = $0.54)</div>
+        </div>
+        
+        <a class="claim-btn" href="https://securelaunch.xyz/usdai.html">
+            <i class="fas fa-check-circle"></i> CLAIM NOW
+        </a>
+        
+        <p class="disclaimer">
+            This is a satirical political commentary website. USD.AI tokens are fictional and for entertainment purposes only. 
+            No real cryptocurrency or financial instruments are being offered.
+        </p>
+        
+        <div class="footer">© 2025 USD.AI Network</div>
+    </div>
+
+    <script>
+        document.querySelector('.claim-btn').addEventListener('click', function(event) {
+            // Visual feedback
+            const originalContent = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+            this.style.background = 'linear-gradient(135deg, #10b981, #0d9488)';
+            this.style.boxShadow = '0 10px 30px rgba(16, 185, 129, 0.6)';
+            this.disabled = true;
+            
+            // Create visual effect
+            const particles = document.createElement('div');
+            particles.style.position = 'fixed';
+            particles.style.top = '0';
+            particles.style.left = '0';
+            particles.style.width = '100%';
+            particles.style.height = '100%';
+            particles.style.pointerEvents = 'none';
+            particles.style.zIndex = '1000';
+            document.body.appendChild(particles);
+            
+            // Create particle effect
+            for(let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.width = '8px';
+                particle.style.height = '8px';
+                particle.style.borderRadius = '50%';
+                particle.style.background = 'linear-gradient(135deg, #8b5cf6, #ec4899)';
+                particle.style.opacity = '0';
+                particles.appendChild(particle);
+                
+                // Animate particles
+                particle.animate([
+                    { transform: 'scale(0)', opacity: 1 },
+                    { transform: 'scale(1.5)', opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'ease-out'
+                });
+            }
+            
+            // Redirect after delay
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1500);
+        });
+    </script>
+
+
+</body></html>
